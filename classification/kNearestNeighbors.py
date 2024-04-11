@@ -24,9 +24,9 @@ X_test = sc.transform(X_test)
 print(X_train)
 print(X_test)
 
-# training the logistic regression model on the training set
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state = 0)
+# training the K-NN model on the training set
+from sklearn.neighbors import KNeighborsClassifier
+classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
 classifier.fit(X_train, y_train)
 
 # predicting if someone bought based on that salary
