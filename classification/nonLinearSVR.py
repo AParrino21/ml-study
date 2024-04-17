@@ -26,7 +26,7 @@ print(X_test)
 
 # training the SVM model on the training set
 from sklearn.svm import SVC
-classifier = SVC(kernel = 'linear', random_state = 0)
+classifier = SVC(kernel = 'rbf', random_state = 0)
 classifier.fit(X_train, y_train)
 
 # predicting if someone bought based on that salary
@@ -39,8 +39,8 @@ print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),
 # making the confusion maxtrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-# for prediction of 0 should read 66 correct predictions and 2 incorrect
-# for prediction of 1 should read 8 incorrect and 24 correct predictions
+# for prediction of 0 should read 64 correct predictions and 4 incorrect
+# for prediction of 1 should read 3 incorrect and 29 correct predictions
 print(cm)
 # accuracy precentage
 print(accuracy_score(y_test, y_pred))
