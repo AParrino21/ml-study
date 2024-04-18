@@ -24,9 +24,9 @@ X_test = sc.transform(X_test)
 print(X_train)
 print(X_test)
 
-# training the non linear SVM model on the training set
-from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf', random_state = 0)
+# training the naive bayes model on the training set
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
 classifier.fit(X_train, y_train)
 
 # predicting if someone bought based on that salary
@@ -39,8 +39,8 @@ print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),
 # making the confusion maxtrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-# for prediction of 0 should read 64 correct predictions and 4 incorrect
-# for prediction of 1 should read 3 incorrect and 29 correct predictions
+# for prediction of 0 should read 65 correct predictions and 3 incorrect
+# for prediction of 1 should read 7 incorrect and 25 correct predictions
 print(cm)
 # accuracy precentage
 print(accuracy_score(y_test, y_pred))
